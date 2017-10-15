@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
 <mapper namespace="dao.IUserInfoDao" >      
     <resultMap id="BaseResultMap" type="vo.User">      
-        <result column="NAME" property="name" jdbcType="VARCHAR" />    
+        <result column="USERNAME" property="username" jdbcType="VARCHAR" />    
         <result column="PASSWORD" property="password" jdbcType="VARCHAR" />    
     </resultMap>    
     
     <sql id="Base_User_Info">    
-        name, password    
+        username, password    
     </sql>    
     
     <!-- 查询用户-->    
     <select id="queryByUserName" resultMap="BaseResultMap"    
         parameterType="java.lang.Integer">    
         SELECT    
-        <include refid="Base_User_List" />    
+        <include refid="Base_User_Info" />    
         FROM TM_USERINFO    
-        WHERE  name= #{,jdbcType=INTEGER}    
+        WHERE username= #{username,jdbcType=VARCHAR} And password=#{password,jdbcType=VARCHAR}   
     </select> 
     
 </mapper>

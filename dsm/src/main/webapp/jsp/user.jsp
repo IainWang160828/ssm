@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="sf"  uri="http://www.springframework.org/tags/form"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,10 +13,10 @@
 <base href="<%=basePath%>">
 </head>
 <body>
-<form action="<%=basePath%>jsp/user/login" method="post">
-<label>用户名:</label><input type="text" name="username"></br>
-<label>&nbsp;&nbsp;&nbsp;密码:</label><input type="text" name="password"/></br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">提交</button>
+<form action="dsm/login" method="post">
+<label>UseName:</label><input type="text" name="username"/></br>
+<label>&nbsp;&nbsp;&nbsp;Password:</label><input type="text" name="password"/></br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit"></input>
 </form>
 </body>
 </html>

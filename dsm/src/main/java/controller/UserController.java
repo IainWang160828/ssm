@@ -1,5 +1,9 @@
 package controller;
 
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,19 +20,19 @@ import service.IUserService;
 public class UserController {
 @Autowired
 IUserService userService;
-@RequestMapping(value="/jsp/user/login", method = RequestMethod.POST)
+@RequestMapping(value="/login", method = RequestMethod.POST)
 public String login(@RequestParam("username")String username, @RequestParam("password")String password,Model model){
+	final Logger logger = LoggerFactory.getLogger("UserController");
 	UserLoginReq req= new UserLoginReq();
 	req.setUsername(username);
 	req.setPassword(password);
 	UserLoginResp resp= userService.loginByUsernameAndPassword(req);
 	if (resp.getUsername()!=null){
-	model.addAttribute("username", username);	
-	return "success";
-	
+		logger.debug(resp.getUsername());
+	return "redirect:/jsp/user/LoginSuccess";
 	}
 	else{
-	return "fail";
+		return "redirect:/jsp/user/LoginFail";
 	}
 }
 
