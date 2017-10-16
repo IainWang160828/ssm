@@ -12,7 +12,7 @@
     
     <!-- 查询用户-->    
     <select id="queryByUserName" resultMap="BaseResultMap"    
-        parameterType="java.lang.Integer">    
+        parameterType="java.lang.String">    
         SELECT    
         <include refid="Base_User_Info" />    
         FROM TM_USERINFO    

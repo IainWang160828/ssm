@@ -28,11 +28,11 @@ public String login(@RequestParam("username")String username, @RequestParam("pas
 	req.setPassword(password);
 	UserLoginResp resp= userService.loginByUsernameAndPassword(req);
 	if (resp.getUsername()!=null){
-		logger.debug(resp.getUsername());
-	return "redirect:/jsp/user/LoginSuccess";
+		logger.info(resp.getUsername());
+	return "redirect:/jsp/LoginSuccess.jsp";
 	}
 	else{
-		return "redirect:/jsp/user/LoginFail";
+		return "redirect:/jsp/LoginFail.jsp";
 	}
 }
 
