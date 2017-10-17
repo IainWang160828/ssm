@@ -1,4 +1,9 @@
 package dto;
+/**
+ * 用户登录请求对象
+ * @author Yi
+ *
+ */
 
 public class UserLoginReq {
 

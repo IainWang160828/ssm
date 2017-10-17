@@ -6,5 +6,9 @@ import vo.User;
 
 public interface IUserInfoDao {
 
-	User queryByUserName(@Param("username")String username, @Param("password")String password); 
+	User queryByUserName(@Param("username")String username, @Param("password")String password);
+	
+	
+	
+	
 }

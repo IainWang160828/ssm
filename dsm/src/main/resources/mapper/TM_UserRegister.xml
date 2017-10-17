@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
+<mapper namespace="dao.IUserRegisterDao" > 
+<!-- 查询单个用户名 -->
+    <select id="queryByNewUserName" resultType="java.lang.String" parameterType="java.lang.String">
+         SELECT
+         username
+         FROM 
+         TM_USERINFO    
+         WHERE username= #{username,jdbcType=VARCHAR}
+    </select>
+    <!-- 新增用户信息 -->
+     <insert id="addNewUser" parameterType="vo.User" 
+        useGeneratedKeys="true" keyProperty="ID"> 
+         INSERT INTO 
+         TM_USERINFO(username,password,age,company,telephone,email,userId)
+         values(#{username},#{password},#{age},#{company},#{telephone},#{email},#{userId})  
+    </insert>
+</mapper>

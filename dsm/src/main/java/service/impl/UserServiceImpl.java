@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import dao.IUserInfoDao;
 import dto.UserLoginReq;
 import dto.UserLoginResp;
+import dto.UserRegisterReq;
+import dto.UserRegisterResp;
 import service.IUserService;
 import vo.User;
 
@@ -24,8 +26,5 @@ public class UserServiceImpl implements IUserService{
 	
 		return resp;
 	}
-
-	
-
 	
 }
