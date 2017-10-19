@@ -6,7 +6,7 @@ import vo.User;
 
 public interface IUserRegisterDao {
 
-	User queryByNewUserName(@Param("username")String username);
+	String queryByNewUserName(@Param("username")String username);
 	
-	void addNewUser(@Param("User")User userInfo) throws RuntimeException;
+	void addNewUser(@Param("username")String username,@Param("password")String password,@Param("age")String age,@Param("company")String company,@Param("telephone")String telephone,@Param("email")String email,@Param("userId")String userId) throws RuntimeException;
 }
