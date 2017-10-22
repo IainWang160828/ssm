@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alibaba.fastjson.JSONObject;
+
 import dto.UserLoginReq;
 import dto.UserLoginResp;
 import dto.UserRegisterReq;
@@ -33,10 +35,13 @@ public String login(@RequestParam("username")String username, @RequestParam("pas
 	req.setPassword(password);
 	UserLoginResp resp= userService.loginByUsernameAndPassword(req);
 	if (resp.getUsername()!=null){
-		logger.info("用户"+resp.getUsername()+"已登录！");
+		logger.info("===========>用户"+resp.getUsername()+"已登录！");
+		logger.info("===========>用户等级"+resp.getUserRole()+resp.getUserRoleDesc());
 	return "redirect:/jsp/LoginSuccess.jsp";
 	}
 	else{
+		logger.info("===========>用户"+resp.getUsername()+"登录失败！");
+		logger.info("===========>用户等级"+resp.getUserRole()+resp.getUserRoleDesc());
 		return "redirect:/jsp/LoginFail.jsp";
 	}
 }

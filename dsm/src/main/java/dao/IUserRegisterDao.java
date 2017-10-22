@@ -1,9 +1,11 @@
 package dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import vo.User;
 
+@Transactional
 public interface IUserRegisterDao {
 
 	String queryByNewUserName(@Param("username")String username);

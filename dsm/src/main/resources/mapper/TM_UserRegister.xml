@@ -10,8 +10,7 @@
          WHERE username= #{username,jdbcType=VARCHAR}
     </select>
     <!-- 新增用户信息 -->
-     <insert id="addNewUser" parameterType="java.lang.String" 
-        > 
+     <insert id="addNewUser" parameterType="java.lang.String"> 
          INSERT INTO 
          TM_USERINFO(username,password,age,company,telephone,email,userId)
          values(#{username},#{password},#{age},#{company},#{telephone},#{email},#{userId})  

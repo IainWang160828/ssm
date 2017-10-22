@@ -1,4 +1,7 @@
 package vo;
+
+
+
 /**
  * 用户权限值对象
  * @author Yi
@@ -7,6 +10,8 @@ package vo;
 public class UserRole {
 	private String userRole;
 	private String userId;
+	
+	
 	public String getUserRole() {
 		return userRole;
 	}
