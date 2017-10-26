@@ -3,10 +3,12 @@ package service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dao.IUserInfoDao;
 import dao.IUserRegisterDao;
 import dto.UserRegisterReq;
 import dto.UserRegisterResp;
 import service.IUserRegister;
+import service.IUserRoleService;
 import util.IUserUniqueKeyGenerator;
 import vo.User;
 
@@ -16,7 +18,13 @@ public class UserRegisterImpl implements IUserRegister{
 	@Autowired
 	IUserRegisterDao userRegisterdao;
 	
-	@Autowired IUserUniqueKeyGenerator userUniqueKeyGenerator;
+	@Autowired 
+	IUserUniqueKeyGenerator userUniqueKeyGenerator;
+	
+	@Autowired
+    IUserRoleService userRoleService;
+	
+
 
 	public UserRegisterResp registerNewUser(UserRegisterReq req) {
 		UserRegisterResp resp = new UserRegisterResp();
@@ -26,6 +34,7 @@ public class UserRegisterImpl implements IUserRegister{
 			String userId = userUniqueKeyGenerator.UniqueKeyGenerator();
 			userRegisterdao.addNewUser(req.getUsername(), req.getPassword(), req.getAge(), req.getCompany(),
 					req.getTelephone(), req.getEmail(), userId);
+			userRoleService.addUserRoleByUserId(userId,"R");//注册时默认最低权限
 			resp.setUserId(userId);
 			resp.setRegisterDesc("注册成功！！");
 		} else {

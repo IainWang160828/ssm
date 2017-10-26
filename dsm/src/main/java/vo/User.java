@@ -13,6 +13,7 @@ public class User {
 	private String telephone;
 	private String email;
 	private String age;
+	private String userRole;
 	
 	public String getUsername() {
 		return username;
@@ -55,6 +56,12 @@ public class User {
 	}
 	public void setAge(String age) {
 		this.age = age;
+	}
+	public String getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
 	}
     
 }

@@ -4,6 +4,7 @@ package dto;
 
 public class UserRoleResp {
 	
+	
 	private String userRole;
 	private String userRoleDesc;
 	private String status;
@@ -28,8 +29,6 @@ public class UserRoleResp {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
 	
 
 }

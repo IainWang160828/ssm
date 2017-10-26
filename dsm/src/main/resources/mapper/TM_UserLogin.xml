@@ -8,7 +8,8 @@
         <result column="AGE" property="age" jdbcType="VARCHAR" />
         <result column="COMPANY" property="company" jdbcType="VARCHAR" />
         <result column="USERID" property="userId" jdbcType="VARCHAR" />
-        <result column="EMAIL" property="email" jdbcType="VARCHAR" />          
+        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+        <result column="USERROLE" property="userRole" jdbcType="VARCHAR" />            
     </resultMap>    
     
     <sql id="Base_User_Info">    
@@ -19,9 +20,17 @@
     <select id="queryByUserName" resultMap="BaseResultMap"    
         parameterType="java.lang.String">    
         SELECT    
-        <include refid="Base_User_Info" />    
-        FROM TM_USERINFO     
-        WHERE username= #{username,jdbcType=VARCHAR} And password=#{password,jdbcType=VARCHAR}   
+        A.username,A.password,A.telephone,A.age,A.company,A.userId,A.email,C.userRole    
+        FROM TM_USERINFO AS A, TM_USERROLE AS C    
+        WHERE username= #{username,jdbcType=VARCHAR} And password=#{password,jdbcType=VARCHAR} And A.userId=C.userId   
     </select> 
     
+ <!-- 查全量用户数据，暂时不分页 -->
+ <select id="queryAllUserInfo" resultMap="BaseResultMap"    
+        parameterType="java.lang.String">    
+        SELECT    
+        A.username,A.password,A.telephone,A.age,A.company,A.userId,A.email,C.userRole    
+        FROM TM_USERINFO AS A, TM_USERROLE AS C    
+        WHERE A.userId=C.userId   
+ </select>
 </mapper>

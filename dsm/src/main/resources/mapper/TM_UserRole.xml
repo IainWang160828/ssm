@@ -18,8 +18,10 @@ WHERE userId=#{userId,jdbcType=VARCHAR}
 <!-- 添加用户权限 -->
 <insert id="addUserRole" parameterType="java.lang.String">  
 INSERT INTO 
-TM_USERROLE
-VALUES(#{userId,jdbcType=VARCHAR},#{userRole,jdbcType=VARCHAR})
+TM_USERROLE(userId,userRole)
+values(#{userId},#{userRole})
         
 </insert>
+
+ 
 </mapper>

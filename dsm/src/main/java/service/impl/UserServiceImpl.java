@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +30,19 @@ public class UserServiceImpl implements IUserService{
 		UserLoginResp resp= new UserLoginResp();
 		UserRoleResp userRoleResp= new UserRoleResp();
 		User loginResult= userInfoDao.queryByUserName(req.getUsername(), req.getPassword());
+		ArrayList<User> queryResult= userInfoDao.queryAllUserInfo();
 		if(loginResult.getUserId()!=null){
 		userRoleResp=userRoleService.queryUserRoleByUserId(loginResult.getUserId());
 		if(userRoleResp.getStatus().equals("0000")){
 		resp.setUsername(loginResult.getUsername());
-		resp.setUserRole(userRoleResp.getUserRole());
+		resp.setUserRole(loginResult.getUserRole());
 		resp.setUserRoleDesc(userRoleResp.getUserRoleDesc());
+		resp.setUserList(queryResult);
 		}
 		}
 	
 		return resp;
 	}
+
 	
 }

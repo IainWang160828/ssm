@@ -43,11 +43,11 @@ IUserRoleDao userRoleDao;
 		return resp;
 	}
 
-	public void addUserRoleByUserId(UserRoleReq req) {
+	public void addUserRoleByUserId(String userId, String userRole) {
 		UserRoleResp resp= new UserRoleResp();
-		userRoleDao.addUserRole(req.getUserId(), req.getUserRole());
+		userRoleDao.addUserRole(userId, userRole);
 		final Logger logger = LoggerFactory.getLogger("addUserRoleByUserId");
-		logger.info("============>插入用户角色成功"+req.getUserId());
+		logger.info("============>插入用户角色成功"+userId);
 		resp.setStatus("0000");
 	}
 

@@ -7,6 +7,6 @@ public interface IUserRoleService {
 	
 	UserRoleResp queryUserRoleByUserId(String userId);
 	
-	void addUserRoleByUserId(UserRoleReq req);
+	void addUserRoleByUserId(String userId, String userRole);
 
 }

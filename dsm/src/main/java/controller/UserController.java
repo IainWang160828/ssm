@@ -9,8 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.servlet.ModelAndView;
 
 import dto.UserLoginReq;
 import dto.UserLoginResp;
@@ -28,7 +27,7 @@ IUserService userService;
 @Autowired
 IUserRegister userRegister;
 @RequestMapping(value="/login", method = RequestMethod.POST)//登陆
-public String login(@RequestParam("username")String username, @RequestParam("password")String password){
+public ModelAndView login(@RequestParam("username")String username, @RequestParam("password")String password){
 	final Logger logger = LoggerFactory.getLogger("UserController");
 	UserLoginReq req= new UserLoginReq();
 	req.setUsername(username);
@@ -37,12 +36,11 @@ public String login(@RequestParam("username")String username, @RequestParam("pas
 	if (resp.getUsername()!=null){
 		logger.info("===========>用户"+resp.getUsername()+"已登录！");
 		logger.info("===========>用户等级"+resp.getUserRole()+resp.getUserRoleDesc());
-	return "redirect:/jsp/LoginSuccess.jsp";
+	return new ModelAndView("LoginSuccess","resp",resp);
 	}
 	else{
 		logger.info("===========>用户"+resp.getUsername()+"登录失败！");
-		logger.info("===========>用户等级"+resp.getUserRole()+resp.getUserRoleDesc());
-		return "redirect:/jsp/LoginFail.jsp";
+		return new ModelAndView("/jsp/LoginFail.jsp");
 	}
 }
 
