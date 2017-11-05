@@ -14,7 +14,7 @@
    <!--  <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">    
         <property name="location" value="classpath:jdbc.properties" />    
     </bean>  -->
-    <!-- 引入.properties属性文件 -->
+    <!-- 引入.properties属性文件,jdbc配置出错，暂时写死 -->
     <context:property-placeholder location="classpath:*.properties"/>    
         
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">    

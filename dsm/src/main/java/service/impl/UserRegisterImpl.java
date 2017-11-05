@@ -2,8 +2,9 @@ package service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import dao.IUserInfoDao;
+
 import dao.IUserRegisterDao;
 import dto.UserRegisterReq;
 import dto.UserRegisterResp;
@@ -25,7 +26,7 @@ public class UserRegisterImpl implements IUserRegister{
     IUserRoleService userRoleService;
 	
 
-
+    @Transactional
 	public UserRegisterResp registerNewUser(UserRegisterReq req) {
 		UserRegisterResp resp = new UserRegisterResp();
 		String username = req.getUsername();

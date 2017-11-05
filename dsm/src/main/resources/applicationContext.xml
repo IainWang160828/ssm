@@ -22,7 +22,7 @@
     <!-- 导入数据库配置 -->    
     <import resource="spring-db.xml"/>    
         
-    <!-- 导入数据库配置 -->    
+    <!-- 导入事务配置 -->    
     <import resource="spring-tx.xml"/>    
         
 </beans>  
