@@ -11,7 +11,7 @@
 <br/>
 <table cellspacing="0" border="1" class="table1">
 <thead>
-   <tr><th width="250">用户名</th><th width="250">用户ID</th><th  width="250">手机号</th><th width="250">邮箱</th><th width="250">公司</th><th width="250">年龄</th></tr>
+   <tr><th width="250">用户名</th><th width="250">用户ID</th><th  width="250">手机号</th><th width="250">邮箱</th><th width="250">公司</th><th width="250">年龄</th><c:if test="${(requestScope.resp.userRole=='A')}"><th width="250">权限修改</th></c:if></tr>
 </thead>
 <tbody>
 <c:forEach items="${requestScope.resp.userList}" var="u"> 
@@ -22,6 +22,7 @@
 <td align="center">${u.email}</a></td>
 <td align="center">${u.company}</a></td>
 <td align="center">${u.age}</a></td>
+<c:if test="${(requestScope.resp.userRole=='A')}"><td align="center"><a href="/RoleQuery">修改</a></td></c:if>
 </tr>
 </c:forEach>
 </tbody>

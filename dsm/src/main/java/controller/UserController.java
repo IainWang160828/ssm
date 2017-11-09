@@ -15,8 +15,10 @@ import dto.UserRegisterReq;
 import dto.UserRegisterResp;
 import dto.UserRoleChangeReq;
 import dto.UserRoleChangeResp;
+import dto.UserRoleResp;
 import service.IUserRegister;
 import service.IUserRoleChangeService;
+import service.IUserRoleService;
 import service.IUserService;
 
 @Controller
@@ -30,6 +32,9 @@ public class UserController {
 	
 	@Autowired
 	IUserRoleChangeService userRoleChange;
+	
+	@Autowired 
+	IUserRoleService userRoleService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST) // 登陆
 	public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
@@ -74,6 +79,16 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = "/roleQuery", method = RequestMethod.POST) // 用户权限查询反显
+	public ModelAndView roleQuery(@RequestParam("userId") String userId) {
+		final Logger logger = LoggerFactory.getLogger("UserController.roleQuery");
+		UserRoleResp resp= userRoleService.queryUserRoleByUserId(userId);
+		if(resp.getUserId()!=null){
+		return new ModelAndView("RoleChange", "resp", resp);
+		}
+		return new ModelAndView("Error", "resp", resp);
+
+	}
 	@RequestMapping(value = "/roleChange", method = RequestMethod.POST) // 用户权限修改
 	public String roleChange(@RequestParam("userId") String userId, @RequestParam("userRole") String userRole) {
 		final Logger logger = LoggerFactory.getLogger("UserController");

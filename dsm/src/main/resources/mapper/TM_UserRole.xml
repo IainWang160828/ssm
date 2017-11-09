@@ -10,9 +10,9 @@
 <!-- 根据userID查用户权限 -->
 <select id="queryUserRoleByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
 SELECT
-<include refid="BASE_SQL_PARAM"/>
-FROM TM_USERROLE
-WHERE userId=#{userId,jdbcType=VARCHAR} 
+r.userId,r.userRole,i.userName
+FROM TM_USERROLE r, TM_USERINFO i
+WHERE r.userId=#{userId,jdbcType=VARCHAR} AND r.userId=i.userId
 </select> 
 
 <!-- 添加用户权限 -->

@@ -15,7 +15,7 @@ Login Success!
    <tr><th width="250">用户名</th><th width="250">用户ID</th><th  width="250">用户权限</th><th  width="250">手机号</th><th width="250">邮箱</th><th width="250">公司</th><th width="250">年龄</th></tr>
 </thead>
 <tbody>
-<c:forEach items="${requestScope.resp}"var="u">
+<c:forEach items="${requestScope.resp}" var="u">
 <tr>
 <td align="center">${u.username}</td>
 <td align="center">${u.userId}</a></td>

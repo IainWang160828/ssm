@@ -10,6 +10,7 @@ package vo;
 public class UserRole {
 	private String userRole;
 	private String userId;
+	private String userName;
 	
 	
 	public String getUserRole() {
@@ -24,6 +25,13 @@ public class UserRole {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	
 
 }

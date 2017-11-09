@@ -8,6 +8,8 @@ public class UserRoleResp {
 	private String userRole;
 	private String userRoleDesc;
 	private String status;
+	private String userId;
+	private String userName;
 	
 	
 	
@@ -28,6 +30,18 @@ public class UserRoleResp {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 

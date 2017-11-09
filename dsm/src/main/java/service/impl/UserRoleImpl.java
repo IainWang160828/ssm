@@ -25,16 +25,22 @@ IUserRoleDao userRoleDao;
 		resp.setUserRole(UserRoleEnum.USER_ROLE_A.getUserLevel());
 		resp.setUserRoleDesc(UserRoleEnum.USER_ROLE_A.getUserDesc());
 		resp.setStatus("0000");
+		resp.setUserId(userRole.getUserId());
+		resp.setUserName(userRole.getUserName());
 		}
 		else if(userRole.getUserRole()!=null&&userRole.getUserRole().equals(UserRoleEnum.USER_ROLE_N.getUserLevel())){
 	    resp.setUserRole(UserRoleEnum.USER_ROLE_N.getUserLevel());
 	    resp.setUserRoleDesc(UserRoleEnum.USER_ROLE_N.getUserDesc());
 	    resp.setStatus("0000");
+	    resp.setUserId(userRole.getUserId());
+		resp.setUserName(userRole.getUserName());
 		}
 		else if(userRole.getUserRole()!=null&&userRole.getUserRole().equals(UserRoleEnum.USER_ROLE_R.getUserLevel())){
 	    resp.setUserRole(UserRoleEnum.USER_ROLE_R.getUserLevel());
 	    resp.setUserRoleDesc(UserRoleEnum.USER_ROLE_R.getUserDesc());
 	    resp.setStatus("0000");
+	    resp.setUserId(userRole.getUserId());
+		resp.setUserName(userRole.getUserName());
 		}
 		else{
 		resp.setStatus("9999");
