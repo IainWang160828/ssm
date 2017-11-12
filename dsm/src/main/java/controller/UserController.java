@@ -79,18 +79,21 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/roleQuery", method = RequestMethod.POST) // 用户权限查询反显
+	@RequestMapping(value = "/roleQuery", method = RequestMethod.GET) // 用户权限查询反显
 	public ModelAndView roleQuery(@RequestParam("userId") String userId) {
 		final Logger logger = LoggerFactory.getLogger("UserController.roleQuery");
 		UserRoleResp resp= userRoleService.queryUserRoleByUserId(userId);
 		if(resp.getUserId()!=null){
+	    logger.info("==========>查询到的用户Id为："+resp.getUserId());
+	    logger.info("==========>查询到的用户名为："+resp.getUserName());
+	    logger.info("==========>查询到的用户原权限为："+resp.getUserRole());
 		return new ModelAndView("RoleChange", "resp", resp);
 		}
 		return new ModelAndView("Error", "resp", resp);
 
 	}
 	@RequestMapping(value = "/roleChange", method = RequestMethod.POST) // 用户权限修改
-	public String roleChange(@RequestParam("userId") String userId, @RequestParam("userRole") String userRole) {
+	public String roleChange(@RequestParam(value="userId") String userId, @RequestParam(value="userRole") String userRole) {
 		final Logger logger = LoggerFactory.getLogger("UserController");
 		UserRoleChangeReq req= new UserRoleChangeReq();
 		req.setUserId(userId);

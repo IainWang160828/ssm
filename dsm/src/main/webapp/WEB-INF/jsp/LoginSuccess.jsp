@@ -22,7 +22,7 @@
 <td align="center">${u.email}</a></td>
 <td align="center">${u.company}</a></td>
 <td align="center">${u.age}</a></td>
-<c:if test="${(requestScope.resp.userRole=='A')}"><td align="center"><a href="/RoleQuery">修改</a></td></c:if>
+<c:if test="${(requestScope.resp.userRole=='A')}"><td align="center"><a href="roleQuery?userId=${u.userId}">修改</a></td></c:if>
 </tr>
 </c:forEach>
 </tbody>
