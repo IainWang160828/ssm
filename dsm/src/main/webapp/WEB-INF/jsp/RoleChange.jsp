@@ -22,8 +22,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td align="center"><input type="text" name="userId" style="text-align:center" value=${requestScope.resp.userId} disabled></td>
-					<td align="center"><input type="text" name="userName" style="text-align:center" value=${requestScope.resp.userName} disabled></td>
+					<td align="center"><input type="text" name="userId" style="text-align:center" value=${requestScope.resp.userId}></td>
+					<td align="center"><input type="text" name="userName" style="text-align:center" value=${requestScope.resp.userName}></td>
 					<td align="center">${requestScope.resp.userRoleDesc}</td>
 					<td align="center"><select name="userRole" id="userRole" >
 							<option value="A">管理员</option>
